@@ -3,6 +3,7 @@ package array;
 //@Author : Hemant Singh Bisht
 //@Note : This program is only to find 1 non repetitive number in the Array. if you pass more than
 //        one non repetitive number in the array it will fail.
+//@TimeComplexity : O(n)
 
 public class FindNonRepetitiveNumber {
 

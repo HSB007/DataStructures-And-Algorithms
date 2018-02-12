@@ -10,7 +10,7 @@ class Pool
 	int n;
 	boolean flag = true;
 	
-	synchronized void printEven(int even)
+	synchronized void printOdd(int odd)
 	{
 	    if(!flag)
 	    {
@@ -23,12 +23,12 @@ class Pool
 		        System.out.println("InterruptedException");
 		    }
 	    }
-	    System.out.println("Odd: " + even);
+	    System.out.println("Odd: " + odd);
 	    flag = false;
 	    notify();
 	}
 	
-	synchronized void printOdd(int odd)
+	synchronized void printEven(int even)
 	{
 	    if(flag)
 	    {
@@ -41,7 +41,7 @@ class Pool
 		        System.out.println("InterruptedException");
 		    }
 	    }
-	    System.out.println("Even: " + odd);
+	    System.out.println("Even: " + even);
 	    flag = true;
 	    notify();
 	}
@@ -59,7 +59,7 @@ class EvenThread implements Runnable
 	
 	public void run()
 	{
-	    for(int counter=1;counter<=10;counter=counter+2)
+	    for(int counter=2;counter<=10;counter=counter+2)
 	        poolObj.printEven(counter);
 	}
 }
@@ -75,7 +75,7 @@ class OddThread implements Runnable
 	}
 	public void run()
 	{
-		 for(int counter=2;counter<=10;counter=counter+2)
+		 for(int counter=1;counter<=10;counter=counter+2)
 		        poolObj.printOdd(counter);
 	}
 }
